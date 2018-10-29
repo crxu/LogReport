@@ -3,11 +3,13 @@ apply plugin: 'com.github.dcendents.android-maven'
 group='com.crxu.library' //crxu替换成你自己的Github用户名
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 22
+    buildToolsVersion '26.0.2'
+
 
     defaultConfig {
         minSdkVersion 19
-        targetSdkVersion 26
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
