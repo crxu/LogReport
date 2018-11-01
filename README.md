@@ -10,7 +10,7 @@ allprojects {
   
   
   dependencies {
-	        implementation 'com.github.crxu:SNSDemo:V1.0.4'
+	       compile 'com.github.crxu:LogReport:V1.0.4'
 	}
 	
 	
