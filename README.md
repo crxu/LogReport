@@ -10,5 +10,5 @@ allprojects {
   
   
   dependencies {
-	        implementation 'com.github.crxu:SNSDemo:Tag'
+	        implementation 'com.github.crxu:SNSDemo:V1.0.4'
 	}
