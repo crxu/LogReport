@@ -19,7 +19,7 @@ public class JLog {
      */
     public static void e(String tag, String msg) {
         if (isDebug) {
-            Logger.t(tag).e(msg );
+            Logger.t(tag).e("<>"+msg);
         }
     }
 
@@ -28,7 +28,7 @@ public class JLog {
      */
     public static void d(String tag, String msg) {
         if (isDebug) {
-            Logger.t(tag).d(msg );
+            Logger.t(tag).d("<>"+msg);
         }
     }
 
@@ -37,7 +37,7 @@ public class JLog {
      */
     public static void v(String tag, String msg) {
         if (isDebug) {
-            Logger.t(tag).v(msg );
+            Logger.t(tag).v("<>"+msg );
         }
     }
 
@@ -46,7 +46,7 @@ public class JLog {
      */
     public static void i(String tag, String msg) {
         if (isDebug) {
-            Logger.t(tag).i(msg );
+            Logger.t(tag).i("<>"+msg);
         }
     }
 
@@ -56,7 +56,7 @@ public class JLog {
      */
     public static void e(String msg) {
         if (isDebug) {
-            Logger.e(msg );
+            Logger.e("<>"+msg);
         }
     }
 
@@ -65,13 +65,13 @@ public class JLog {
      */
     public static void d(String msg) {
         if (isDebug) {
-            Logger.d(msg);
+            Logger.d("<>"+msg);
         }
     }
 
     public static void d(Object o) {
         if (isDebug) {
-            Logger.d(o);
+            Logger.d("<>"+o);
         }
     }
 
@@ -80,7 +80,7 @@ public class JLog {
      */
     public static void v(String msg) {
         if (isDebug) {
-            Logger.v(msg );
+            Logger.v("<>"+msg);
         }
     }
 
@@ -89,13 +89,13 @@ public class JLog {
      */
     public static void i(String msg) {
         if (isDebug) {
-            Logger.i(msg );
+            Logger.i("<>"+msg );
         }
     }
 
     public static void json(String json) {
         if (isDebug) {
-            Logger.json(json);
+            Logger.json("<>"+json);
         }
     }
 
@@ -103,19 +103,19 @@ public class JLog {
 
     public static void xml(String xml) {
         if (isDebug) {
-            Logger.xml(xml);
+            Logger.xml("<>"+xml);
         }
     }
 
     public static void json(String tag, String json) {
         if (isDebug) {
-            Logger.t(tag).json(json);
+            Logger.t(tag).json("<>"+json);
         }
     }
 
     public static void xml(String tag, String xml) {
         if (isDebug) {
-            Logger.t(tag).xml(xml);
+            Logger.t(tag).xml("<>"+xml);
         }
     }
 
