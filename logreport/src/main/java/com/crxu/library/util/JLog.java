@@ -5,9 +5,9 @@ import com.orhanobut.logger.Logger;
 
 
 public class JLog {
-    private static final boolean DEBUG = BuildConfig.DEBUG;
+    //private static final boolean DEBUG = BuildConfig.DEBUG;
 
-   // private static final boolean DEBUG = true;
+    private static final boolean DEBUG = true;
     /**
      * 是否开启debug
      * 注意：使用Eclipse打包的时候记得取消Build Automatically，否则一直是true
