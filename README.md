@@ -57,5 +57,6 @@ allprojects {
     }
 }
 
+LogReport.getInstance().upload(this);
 
 http://p.codekk.com/detail/Android/wenmingvs/LogReport
