@@ -56,3 +56,7 @@ allprojects {
         Logger.addLogAdapter(new AndroidLogAdapter(formatStrategy));
     }
 }
+
+LogReport.getInstance().upload(this);
+
+http://p.codekk.com/detail/Android/wenmingvs/LogReport
