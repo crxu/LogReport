@@ -6,6 +6,7 @@ import android.content.Intent;
 import com.crxu.library.LogReport;
 import com.crxu.library.util.CompressUtil;
 import com.crxu.library.util.FileUtil;
+import com.crxu.library.util.JLog;
 import com.crxu.library.util.LogUtil;
 
 import java.io.File;
@@ -51,13 +52,13 @@ public class UploadService extends IntentService {
             final File logfolder = new File(LogReport.getInstance().getROOT() + "Log/");
             // 如果Log文件夹都不存在，说明不存在崩溃日志，检查缓存是否超出大小后退出
             if (!logfolder.exists() || logfolder.listFiles().length == 0) {
-                LogUtil.d("Log文件夹都不存在，无需上传");
+                JLog.e("Log文件夹都不存在，无需上传");
                 return;
             }
             //只存在log文件，但是不存在崩溃日志，也不会上传
             ArrayList<File> crashFileList = FileUtil.getCrashList(logfolder);
             if (crashFileList.size() == 0) {
-                LogUtil.d(TAG, "只存在log文件，但是不存在崩溃日志，所以不上传");
+                JLog.e(TAG, "只存在log文件，但是不存在崩溃日志，所以不上传");
                 return;
             }
             File zipfolder = new File(LogReport.getInstance().getROOT() + "AlreadyUploadLog/");
@@ -70,7 +71,7 @@ public class UploadService extends IntentService {
 
             //把日志文件压缩到压缩包中
             if (CompressUtil.zipFileAtPath(logfolder.getAbsolutePath(), zipfile.getAbsolutePath())) {
-                LogUtil.d("把日志文件压缩到压缩包中 ----> 成功");
+                JLog.e("把日志文件压缩到压缩包中 ----> 成功");
                 for (File crash : crashFileList) {
                     content.append(FileUtil.getText(crash));
                     content.append("\n");
@@ -78,23 +79,23 @@ public class UploadService extends IntentService {
                 LogReport.getInstance().getUpload().sendFile(zipfile, content.toString(), new ILogUpload.OnUploadFinishedListener() {
                     @Override
                     public void onSuceess() {
-                        LogUtil.d("日志发送成功！！");
+                        JLog.e("日志发送成功！！");
                         FileUtil.deleteDir(logfolder);
                         boolean checkresult = checkCacheSize(rootdir);
-                        LogUtil.d("缓存大小检查，是否删除root下的所有文件 = " + checkresult);
+                        JLog.e("缓存大小检查，是否删除root下的所有文件 = " + checkresult);
                         stopSelf();
                     }
 
                     @Override
                     public void onError(String error) {
-                        LogUtil.d("日志发送失败：  = " + error);
+                        JLog.e("日志发送失败：  = " + error);
                         boolean checkresult = checkCacheSize(rootdir);
-                        LogUtil.d("缓存大小检查，是否删除root下的所有文件 " + checkresult);
+                        JLog.e("缓存大小检查，是否删除root下的所有文件 " + checkresult);
                         stopSelf();
                     }
                 });
             } else {
-                LogUtil.d("把日志文件压缩到压缩包中 ----> 失败");
+                JLog.e("把日志文件压缩到压缩包中 ----> 失败");
             }
         } catch (Exception exception) {
             exception.printStackTrace();
